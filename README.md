@@ -1,50 +1,70 @@
-# Welcome to your Expo app 👋
+# Sticker Smash 🎨
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple sticker editor built with **React Native** and **Expo** by following the official Expo Sticker Smash tutorial.
 
-## Get started
+Users can choose an image, place stickers on it, and save the final creation to their device.
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+- 📷 Pick an image from the device
+- 😀 Add emoji stickers
+- ✨ Drag and position stickers
+- 💾 Save the edited image to the device gallery
+- 🌐 Supports Android, iOS, and Web
 
-2. Start the app
+## Built With
 
-   ```bash
-   npx expo start
-   ```
+- React Native
+- Expo
+- Expo Router
+- Expo Image Picker
+- Expo Media Library
+- React Native Gesture Handler
+- React Native Reanimated
+- react-native-view-shot
 
-In the output, you'll find options to open the app in a
+## Getting Started
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### Install dependencies
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Start the development server
 
-## Learn more
+```bash
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+Then choose one of the available options:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Android Emulator
+- iOS Simulator
+- Expo Go
+- Web Browser
 
-## Join the community
+## What I Learned
 
-Join our community of developers creating universal apps.
+This project helped me learn:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Building cross-platform apps with Expo
+- File-based routing using Expo Router
+- Working with images using Expo Image Picker
+- Handling device permissions
+- Capturing views as images
+- Saving images to the device gallery
+- Basic gesture handling and animations
+
+## Screenshots
+
+Add screenshots or a GIF of the app here.
+
+```
+assets/screenshots/home.png
+assets/screenshots/editor.png
+```
+
+## Acknowledgements
+
+This project was built by following the official Expo **Sticker Smash** tutorial.

@@ -44,6 +44,8 @@ export default function Index() {
 
   const onReset = () => {
     setShowAppOptions(false);
+    setPickedEmoji(undefined);
+    setSelectedImage(undefined);
   };
 
   const onAddSticker = () => {
