@@ -8,7 +8,7 @@ import ImageViewer from '@/components/ImageViewer';
 import domtoimage from 'dom-to-image';
 import * as ImagePicker from 'expo-image-picker';
 import * as MediaLibrary from 'expo-media-library';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { ImageSourcePropType, Platform, StyleSheet, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { captureRef } from 'react-native-view-shot';
@@ -27,12 +27,6 @@ export default function Index() {
   const [permissionResponse, requestPermission] =
     ImagePicker.useMediaLibraryPermissions();
   const imageRef = useRef<View>(null);
-
-  useEffect(() => {
-    if (!permissionResponse?.granted) {
-      requestPermission();
-    }
-  }, [permissionResponse?.granted, requestPermission]);
 
   const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -61,22 +55,7 @@ export default function Index() {
   };
 
   const onSaveImageAsync = async () => {
-    if (Platform.OS !== 'web') {
-      try {
-        const localUri = await captureRef(imageRef, {
-          height: 440,
-          quality: 1,
-        });
-
-        await MediaLibrary.saveToLibraryAsync(localUri);
-
-        if (localUri) {
-          alert('Saved');
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    } else {
+    if (Platform.OS === 'web') {
       try {
         // @ts-ignore
         const dataurl = await domtoimage.toJpeg(imageRef.current, {
@@ -92,6 +71,28 @@ export default function Index() {
       } catch (e) {
         console.log(e);
       }
+      return;
+    }
+
+    if (!permissionResponse?.granted) {
+      const permission = await requestPermission();
+
+      if (!permission.granted) {
+        alert('Permission denied');
+        return;
+      }
+    }
+
+    try {
+      const localUri = await captureRef(imageRef, {
+        height: 440,
+        quality: 1,
+      });
+
+      await MediaLibrary.saveToLibraryAsync(localUri);
+      alert('Saved');
+    } catch (e) {
+      console.log(e);
     }
   };
 
